@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 app.use(bodyParser.json())
-
+const PORT = 3000
 const MongoClient = require('mongodb').MongoClient
 //must be before crud handlers
 app.use(express.static('public'))
@@ -77,7 +77,7 @@ MongoClient.connect(connectionString, {useUnifiedTopology: true})
     .catch(error => console.error(error))
   })
 
-  app.listen(3000, function() {
+  app.listen(PORT, function() {
     console.log('listening on 3000')
   })
   
